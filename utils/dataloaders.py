@@ -42,7 +42,6 @@ from utils.general import (
     NUM_THREADS,
     TQDM_BAR_FORMAT,
     check_dataset,
-    check_requirements,
     check_yaml,
     clean_str,
     cv2,
@@ -54,7 +53,7 @@ from utils.general import (
     xywh2xyxy,
     xywhn2xyxy,
     xyxy2xywhn,
-)
+)    ###check_requirements,
 from utils.torch_utils import torch_distributed_zero_first
 
 # Parameters
@@ -230,8 +229,8 @@ class LoadScreenshots:
         """Initializes a screenshot dataloader for YOLOv3; source format: [screen_number left top width height], default
         img_size=640, stride=32.
         """
-        check_requirements("mss")
-        import mss
+        ###check_requirements("mss")
+        ###import mss
 
         source, *params = source.split()
         self.screen, left, top, width, height = 0, None, None, None, None  # default to full screen 0
@@ -407,8 +406,8 @@ class LoadStreams:
             st = f"{i + 1}/{n}: {s}... "
             if urlparse(s).hostname in ("www.youtube.com", "youtube.com", "youtu.be"):  # if source is YouTube video
                 # YouTube format i.e. 'https://www.youtube.com/watch?v=Zgi9g1ksQHc' or 'https://youtu.be/LNwODJXcvt4'
-                check_requirements(("pafy", "youtube_dl==2020.12.2"))
-                import pafy
+                ###check_requirements(("pafy", "youtube_dl==2020.12.2"))
+                ###import pafy
 
                 s = pafy.new(s).getbest(preftype="mp4").url  # YouTube URL
             s = eval(s) if s.isnumeric() else s  # i.e. s = '0' local webcam

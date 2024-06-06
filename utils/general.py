@@ -33,7 +33,7 @@ import pkg_resources as pkg
 import torch
 import torchvision
 import yaml
-from ultralytics.utils.checks import check_requirements
+#from ultralytics.utils.checks import check_requirements
 
 from utils import TryExcept, emojis
 from utils.downloads import curl_download, gsutil_getsize
@@ -392,8 +392,8 @@ def check_git_info(path="."):
 
     Returns dict.
     """
-    check_requirements("gitpython")
-    import git
+    ###check_requirements("gitpython")
+    ###import git
 
     try:
         repo = git.Repo(path)

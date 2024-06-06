@@ -24,7 +24,7 @@ from models.common import *  # noqa
 from models.experimental import *  # noqa
 from utils.autoanchor import check_anchor_order
 from utils.general import LOGGER, check_version, check_yaml, make_divisible, print_args
-from utils.plots import feature_visualization
+###from utils.plots import feature_visualization
 from utils.torch_utils import (
     fuse_conv_and_bn,
     initialize_weights,
@@ -146,7 +146,7 @@ class BaseModel(nn.Module):
             x = m(x)  # run
             y.append(x if m.i in self.save else None)  # save output
             if visualize:
-                feature_visualization(x, m.type, m.i, save_dir=visualize)
+                pass ###feature_visualization(x, m.type, m.i, save_dir=visualize)
         return x
 
     def _profile_one_layer(self, m, x, dt):
